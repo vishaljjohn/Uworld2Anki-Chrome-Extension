@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      width: 240px;
+      background: #fff;
+      color: #202124;
+      padding: 14px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e8eaed;
+    }
+    header img  { width: 24px; height: 24px; }
+    header span { font-size: 14px; font-weight: 600; color: #1558d6; }
+
+    .section { margin-bottom: 12px; }
+    .section h2 {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #80868b;
+      margin-bottom: 7px;
+    }
+
+    .pill-group { display: flex; gap: 6px; }
+
+    .pill {
+      flex: 1;
+      text-align: center;
+      padding: 7px 4px;
+      border: 1.5px solid #dadce0;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #5f6368;
+      cursor: pointer;
+      transition: all 0.12s;
+      user-select: none;
+    }
+    .pill:hover  { border-color: #a8c4f0; color: #1558d6; background: #f0f4ff; }
+    .pill.active { border-color: #1558d6; color: #1558d6; background: #e8f0fe; font-weight: 600; }
+
+    .preview {
+      background: #1a237e;
+      border-radius: 7px;
+      padding: 9px 11px;
+      margin-top: 4px;
+    }
+    .preview p {
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #9fa8da;
+      margin-bottom: 5px;
+    }
+    .preview code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 10px;
+      color: #7ecfee;
+      word-break: break-all;
+      line-height: 1.5;
+    }
+    .preview code .hl { color: #ffcc80; }
+
+    .saved {
+      text-align: center;
+      font-size: 11px;
+      color: #1e8e3e;
+      margin-top: 8px;
+      height: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="icons/icon48.png" alt="">
+    <span>UWorld2Anki</span>
+  </header>
+
+  <div class="section">
+    <h2>Step</h2>
+    <div class="pill-group">
+      <div class="pill active" data-value="1">Step 1</div>
+      <div class="pill"        data-value="2">Step 2</div>
+      <div class="pill"        data-value="3">Step 3</div>
+    </div>
+  </div>
+
+  <div class="preview">
+    <p>Anki query</p>
+    <code id="preview">tag:#AK_<span class="hl">Step1</span>_v*::#UWorld*::{qid}</code>
+  </div>
+
+  <div class="saved" id="saved"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

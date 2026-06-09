@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UWorld2Anki — Settings</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f4ff;
+      color: #202124;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 36px 16px;
+    }
+    .container { width: 100%; max-width: 400px; }
+    header { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+    header img { width: 32px; height: 32px; }
+    header h1 { font-size: 20px; font-weight: 600; color: #1558d6; }
+    .card { background: #fff; border-radius: 10px; padding: 20px 22px; margin-bottom: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+    .card h2 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.7px; color: #80868b; margin-bottom: 14px; }
+    .options { display: flex; gap: 10px; }
+    .opt { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 8px; border: 2px solid #dadce0; border-radius: 8px; cursor: pointer; transition: border-color 0.15s, background 0.15s; user-select: none; }
+    .opt:hover { border-color: #a8c4f0; background: #f8f9ff; }
+    .opt.selected { border-color: #1558d6; background: #e8f0fe; }
+    .opt input[type=radio] { display: none; }
+    .opt .icon { font-size: 22px; }
+    .opt .label { font-size: 13px; font-weight: 500; color: #3c4043; }
+    .opt .sublabel { font-size: 11px; color: #80868b; }
+    .opt.selected .label { color: #1558d6; }
+    .preview-card { background: #1a237e; border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; }
+    .preview-card h2 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.7px; color: #9fa8da; margin-bottom: 10px; }
+    .preview-tag { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; color: #7ecfee; word-break: break-all; line-height: 1.6; }
+    .preview-tag .hl { color: #ffcc80; }
+    .saved-banner { display: none; align-items: center; gap: 6px; background: #e6f4ea; color: #1e8e3e; border-radius: 8px; padding: 10px 16px; font-size: 13px; font-weight: 500; }
+    .saved-banner.show { display: flex; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <img src="icons/icon48.png" alt="">
+    <h1>UWorld2Anki</h1>
+  </header>
+
+  <div class="card">
+    <h2>Step</h2>
+    <div class="options" id="stepOpts">
+      <label class="opt selected" data-value="1">
+        <input type="radio" name="step" value="1" checked>
+        <span class="icon">1️⃣</span>
+        <span class="label">Step 1</span>
+        <span class="sublabel">AK_Step1_v*</span>
+      </label>
+      <label class="opt" data-value="2">
+        <input type="radio" name="step" value="2">
+        <span class="icon">2️⃣</span>
+        <span class="label">Step 2</span>
+        <span class="sublabel">AK_Step2_v*</span>
+      </label>
+      <label class="opt" data-value="3">
+        <input type="radio" name="step" value="3">
+        <span class="icon">3️⃣</span>
+        <span class="label">Step 3</span>
+        <span class="sublabel">AK_Step3_v*</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="preview-card">
+    <h2>Anki Search Query Preview</h2>
+    <div class="preview-tag" id="preview">tag:#AK_<span class="hl">Step1</span>_v*::#UWorld*::{qid}</div>
+  </div>
+
+  <div class="saved-banner" id="savedBanner">✓ Settings saved — takes effect immediately</div>
+</div>
+<script src="options.js"></script>
+</body>
+</html>

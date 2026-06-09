@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "UWorld2Anki",
+  "version": "2.0",
+  "description": "Opens the matching Anki cards for the current UWorld question via AnkiConnect",
+
+  "permissions": ["storage"],
+
+  "host_permissions": [
+    "*://apps.uworld.com/*",
+    "*://*.uworld.com/*",
+    "http://localhost:8765/"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://apps.uworld.com/*",
+        "*://*.uworld.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "options_page": "options.html",
+
+  "action": {
+    "default_title": "UWorld2Anki — click to configure",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16":  "icons/icon16.png",
+      "48":  "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+
+  "icons": {
+    "16":  "icons/icon16.png",
+    "48":  "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
